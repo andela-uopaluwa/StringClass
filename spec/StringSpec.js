@@ -20,6 +20,7 @@ describe("String Class extension", function() {
   describe("toLower method", function() {
       it("should change characters from upper to lower case", function() {
         expect('TESting'.toLower()).toEqual(jasmine.any(String));
+        expect('TESting'.toLower()).toEqual('testing');
         expect('CRIMSON'.toLower()).toEqual('crimson');
         expect('FLIGHT OF DENZEL: PART I.'.toLower()).toEqual('flight of denzel: part i.');
       });
@@ -39,6 +40,7 @@ describe("String Class extension", function() {
         expect('tests?'.isQuestion()).toEqual(jasmine.any(Boolean));
         expect('When are you asking me out?'.isQuestion()).toBe(true);
         expect('I never planned to do so.'.isQuestion()).toBe(false);
+        expect('?I never planned to do so.'.isQuestion()).toBe(false);
       });
   });
 
@@ -58,9 +60,10 @@ describe("String Class extension", function() {
   });
 
   describe("toCurrency method", function() {
-      it("should ", function() {
+      it("should seperate string into '000 units with ',' ", function() {
         expect('18795.45'.toCurrency()).toEqual(jasmine.any(String));
         expect('56789.10'.toCurrency()).toBe('56,789.10');
+        expect('56789.109568'.toCurrency()).toBe('56,789.109568');
       });
   });
 
